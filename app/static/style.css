@@ -1,0 +1,55 @@
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.draw {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.draw button{
+    padding: 10px;
+    margin-top: 15px;
+    background: none;
+    border: 2px solid black;
+}
+
+.output {
+    font-family: 'monospace';
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+
+.output .label {
+    font-size: 200px;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.output .confidence {
+    position: absolute;
+    top:10px;
+    left: 10px;
+    font-size: 15px;
+    color: red;
+}
+
+canvas {
+    border: 2px solid black;
+    cursor: pointer;
+}
+
