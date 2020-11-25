@@ -32,7 +32,11 @@ Then just use the following commands from the root of the repository
 heroku login
 
 heroku create <your-app-name-here>
+```
 
+Now we are going to push only the app folder to heroku, since the other files are irrelevant for production
+
+```
 git subtree push --prefix app/ heroku master
 ```
 
