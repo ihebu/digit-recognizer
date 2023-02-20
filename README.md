@@ -44,4 +44,4 @@ docker-compose up
 
 ### Usage
 
-to use the app, simply go to [localhost:8080](http://localhost:8080)
+to use the app, simply go to [http://localhost](http://localhost)
