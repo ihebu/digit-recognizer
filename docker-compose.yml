@@ -3,18 +3,22 @@ version: "3.7"
 services:
   cnn_model:
     image: tensorflow/serving:2.11.0
-    ports:
-      - "8501:8501"
     volumes:
       - ./model:/models/model/1
     environment:
       - MODEL_NAME=model
-  web_server:
+  wsgi_server:
     build: ./server
-    ports:
-      - "8080:8080"
     depends_on:
       - cnn_model
     environment:
       - MODEL_URL=http://cnn_model:8501/v1/models/model:predict
     command: gunicorn app:app -b 0.0.0.0:8080 -w 2
+  reverse_proxy:
+    image: nginx:1.23.3-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - wsgi_server
